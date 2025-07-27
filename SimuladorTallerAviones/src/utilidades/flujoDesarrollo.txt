@@ -1,0 +1,157 @@
+Proyecto: Simulador de Taller de Mantenimiento de Aviones
+________________________________________
+1. Temas seleccionados (25 puntos)
+Color	Tema	Puntaje
+⚫ Negro (obligatorio)	Listas enlazadas simples	10
+🔵 Azul	Listas enlazadas circulares	5
+🔴 Rojo	Pilas	5
+🟩 Verde	Recursividad	5
+	Total:	25
+________________________________________
+2. Flujo general del sistema
+Inicio de sesión
+•	Autenticación básica por consola
+•	Validación de usuario y rol (administrador)
+Gestor de Aviones (Listas Enlazadas Simples)
+•	Registro, modificación, eliminación y consulta de aviones
+•	Almacenados en lista enlazada simple
+Gestor de Tareas (Listas Enlazadas Circulares)
+•	Cada avión tiene una lista circular de tareas
+•	Operaciones: agregar tarea, eliminar tarea, recorrer en ciclo
+Simulador de Tareas Urgentes (Pilas)
+•	Las tareas urgentes se manejan como pila (LIFO)
+•	Push: agregar tarea urgente
+•	Pop: ejecutar tarea urgente
+Historial Recursivo (Recursividad)
+•	Mostrar tareas completadas de manera recursiva
+•	Buscar tareas finalizadas por tipo o mensaje usando recursividad
+Sistema Interno
+•	Asignación automática de tareas urgentes a técnicos simulados
+•	Eliminación de tareas completadas
+•	Alertas si hay más de cierta cantidad de tareas sin ejecutar
+________________________________________
+3. Módulos del sistema y asignación sugerida con historias de usuario
+________________________________________
+Módulo 1: Gestión de Usuarios (Inicio de sesión)
+Descripción: Este módulo controla el acceso al sistema a través de validación de usuarios. Verifica las credenciales e identifica el rol del usuario (administrador).
+Clases: Usuario, Administrador
+Funcionalidades:
+•	Iniciar sesión por consola
+•	Validar credenciales de acceso
+•	Determinar el rol del usuario
+Historias de Usuario:
+•	¿Quién? Como usuario del sistema
+¿Qué? Quiero iniciar sesión con mi usuario y contraseña
+¿Para qué? Para acceder a las funcionalidades según mi rol
+Criterios de aceptación:
+•	Validación rápida y segura
+•	Mostrar mensaje si las credenciales son incorrectas
+•	Acceso restringido a funciones según el rol (usuario o administrador)
+👤 Asignado a: [Nombre]
+________________________________________
+Módulo 2: Gestión de Aviones (Lista Enlazada Simple)
+Descripción: Permite registrar, modificar, consultar y eliminar aviones utilizando una lista enlazada simple. Cada avión está vinculado con su lista de tareas.
+Clases: Avion, ListaAviones
+Funcionalidades:
+•	Agregar nuevo avión
+•	Buscar avión por matrícula
+•	Modificar información de un avión
+•	Eliminar avión del sistema
+Historias de Usuario:
+•	¿Quién? Como administrador
+¿Qué? Quiero registrar un nuevo avión
+¿Para qué? Para llevar control del mantenimiento
+•	¿Quién? Como administrador
+¿Qué? Quiero modificar o eliminar información de un avión
+¿Para qué? Para mantener actualizada la base de datos
+•	¿Quién? Como administrador
+¿Qué? Quiero consultar la información de los aviones
+¿Para qué? Para tomar decisiones sobre el taller
+Criterios de aceptación:
+•	Cada avión se almacena correctamente en la lista
+•	La matrícula debe ser única
+•	El sistema debe mostrar mensajes de confirmación
+👤 Asignado a: [Nombre]
+________________________________________
+Módulo 3: Gestión de Tareas (Listas Enlazadas Circulares por avión)
+Descripción: Administra las tareas asociadas a cada avión mediante listas enlazadas circulares. Permite recorrer tareas en ciclo, agregar, eliminar o modificar.
+Clases: Tarea, ListaTareasCirculares
+Funcionalidades:
+•	Agregar tarea a un avión
+•	Eliminar tarea específica
+•	Recorrer tareas de un avión en forma circular
+Historias de Usuario:
+•	¿Quién? Como administrador
+¿Qué? Quiero agregar una tarea a un avión
+¿Para qué? Para planificar su mantenimiento
+•	¿Quién? Como administrador
+¿Qué? Quiero eliminar o consultar las tareas de un avión
+¿Para qué? Para reorganizar el mantenimiento pendiente
+Criterios de aceptación:
+•	Las tareas se deben vincular correctamente con el avión
+•	Se debe permitir recorrer la lista en forma circular
+👤 Asignado a: [Nombre]
+________________________________________
+Módulo 4: Simulador de Tareas Urgentes (Pilas)
+Descripción: Las tareas de emergencia o alta prioridad se almacenan y procesan en una pila (última en entrar, primera en salir).
+Clase: PilaTareasUrgentes
+Funcionalidades:
+•	Agregar tarea urgente (push)
+•	Ejecutar tarea urgente (pop)
+•	Mostrar todas las tareas urgentes pendientes
+Historias de Usuario:
+•	¿Quién? Como administrador
+¿Qué? Quiero agregar tareas urgentes a la pila
+¿Para qué? Para que sean atendidas con prioridad
+•	¿Quién? Como técnico (simulado)
+¿Qué? Quiero ejecutar tareas desde la pila
+¿Para qué? Para resolver emergencias en orden de ingreso
+Criterios de aceptación:
+•	Las tareas deben apilarse correctamente
+•	El sistema debe ejecutar en orden LIFO
+👤 Asignado a: [Nombre]
+________________________________________
+Módulo 5: Recursividad aplicada al historial
+Descripción: Este módulo recorre tareas completadas de manera recursiva y permite buscar información específica en estructuras sin ciclos.
+Clase: HistorialRecursivo
+Funcionalidades:
+•	Recorrer tareas finalizadas recursivamente
+•	Buscar tareas específicas por tipo o descripción
+Historias de Usuario:
+•	¿Quién? Como administrador
+¿Qué? Quiero consultar las tareas finalizadas
+¿Para qué? Para llevar un control del mantenimiento histórico
+•	¿Quién? Como técnico (simulado)
+¿Qué? Quiero buscar tareas por descripción
+¿Para qué? Para verificar historial de atención
+Criterios de aceptación:
+•	El recorrido debe imprimirse completo sin ciclos ni errores
+•	La búsqueda debe encontrar coincidencias exactas
+👤 Asignado a: [Nombre]
+________________________________________
+Módulo 6: Menú de Consola e Integración
+Descripción: Controla la navegación por los distintos módulos mediante un menú interactivo por consola. Organiza las opciones disponibles para el usuario o administrador.
+Clase: MenuSistema
+Funcionalidades:
+•	Mostrar menú principal
+•	Navegar entre módulos según rol
+•	Capturar opciones del usuario
+Historias de Usuario:
+•	¿Quién? Como usuario del sistema
+¿Qué? Quiero ver un menú claro en consola
+¿Para qué? Para acceder fácilmente a las funciones disponibles
+Criterios de aceptación:
+•	El menú debe actualizarse según el tipo de usuario
+•	El sistema debe reaccionar correctamente a cada opción
+👤 Asignado a: [Nombre]
+________________________________________
+4. Justificación del control exclusivo del administrador sobre registros
+En este sistema, el administrador es el único actor que puede registrar, modificar o eliminar entidades clave como aviones, tareas y técnicos. Esta decisión se basa en buenas prácticas de arquitectura de software y control de roles:
+1. Control de la información:
+Permitir que usuarios no autorizados (como técnicos) realicen registros podría comprometer la integridad de los datos. El administrador asegura que la información esté validada y completa, evitando duplicaciones o errores.
+2. Separación de roles:
+El técnico debe enfocarse únicamente en ejecutar tareas asignadas, mientras que el administrador gestiona y organiza el trabajo. Esto refleja el funcionamiento de un taller real, donde solo supervisores o encargados planifican y registran actividades.
+3. Seguridad y trazabilidad:
+Al limitar las acciones de escritura a un solo rol, el sistema se vuelve más seguro, predecible y fácil de auditar.
+Por estas razones, se decidió que solo el administrador pueda realizar acciones de registro y configuración dentro del sistema.
+
