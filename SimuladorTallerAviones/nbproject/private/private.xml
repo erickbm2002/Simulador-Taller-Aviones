@@ -3,7 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/eriic_ws85x/Documents/proyectosGit/Proyecto-Estructura-Datos/JavaApplication13/src/javaapplication13/Principal.java</file>
+            <file>file:/C:/Users/eriic_ws85x/Documents/proyectosGit/Proyecto-Estructura-Datos/SimuladorTallerAviones/src/mensajes/MensajesSistema.java</file>
+            <file>file:/C:/Users/eriic_ws85x/Documents/proyectosGit/Proyecto-Estructura-Datos/SimuladorTallerAviones/src/moduloHistorial/.gitkeep.txt</file>
+            <file>file:/C:/Users/eriic_ws85x/Documents/proyectosGit/Proyecto-Estructura-Datos/SimuladorTallerAviones/src/moduloAviones/Avion.java</file>
+            <file>file:/C:/Users/eriic_ws85x/Documents/proyectosGit/Proyecto-Estructura-Datos/SimuladorTallerAviones/src/moduloAviones/GestorAviones.java</file>
         </group>
     </open-files>
 </project-private>

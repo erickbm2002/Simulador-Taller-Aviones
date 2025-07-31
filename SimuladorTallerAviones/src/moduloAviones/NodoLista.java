@@ -1,3 +1,5 @@
+package moduloAviones;
+
 public class NodoLista {
     private Avion avion;
     private NodoLista siguienteNodo;

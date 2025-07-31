@@ -1,7 +1,11 @@
+package moduloAviones;
+
+
+
 public class ListaAviones {
 
     public static void main(String[] args) {
-        Avion avion =  new Avion("1234", null, null, 0, 0);
+        Avion avion =  new Avion("1234", "sKYLE", null, 0, 0);
         ListaAviones lista = new ListaAviones();
         System.out.println(lista.agregarAvion(avion));
         Avion avion2 =  new Avion("12", null, null, 0, 0);
@@ -9,25 +13,20 @@ public class ListaAviones {
         Avion avion3 =  new Avion("12345", null, null, 0, 0);
         System.out.println(lista.agregarAvion(avion3));
         System.out.println(lista.mostrarListaAviones());
-        lista.eliminarAvion("12");
+        NodoLista nodoAactualizar =lista.buscarAvion("1234");
+        lista.modificarDatosAvion(nodoAactualizar, "145842", "sKYLE", 100, 0);
+        System.out.println("****************************");
         System.out.println(lista.mostrarListaAviones());
-        lista.eliminarAvion("1234");
-        System.out.println(lista.mostrarListaAviones());
-        lista.eliminarAvion("12345");
-        System.out.println(lista.mostrarListaAviones());
-        System.out.println(lista.eliminarAvion("12345"));
-
+        
 
     }
 
     private NodoLista inicio;
     private NodoLista fin;
-    private String mensaje;
 
     public ListaAviones() {
         this.inicio = null;
         this.fin = null;
-        this.mensaje = "";
     }
 
     ///CRUD
@@ -36,6 +35,7 @@ public class ListaAviones {
     /// UPTADE
     /// DELETE
 
+    //CREATE
     public boolean agregarAvion(Avion nuevoAvion) {
         NodoLista nodoNuevo = new NodoLista(nuevoAvion);
         if(esVacia()) {
@@ -48,6 +48,7 @@ public class ListaAviones {
         return true;
     }
 
+    //READ
     public String mostrarListaAviones() {
         String datosAviones = "Aviones ingresados en el taller:" + "\n-------------------------";
         NodoLista nodoActual = this.inicio;
@@ -58,6 +59,7 @@ public class ListaAviones {
         return datosAviones;
     }
 
+    //UPDATE
     public boolean modificarDatosAvion(NodoLista nodoAActualizar, String matriculaActualizada, String modeloActualiado, int capacidadPasajerosModificado, int anioFabricacionActualizado) {
         if(nodoAActualizar != null) {
             nodoAActualizar.getAvion().setMatricula(matriculaActualizada);
@@ -73,6 +75,7 @@ public class ListaAviones {
         return false;
     }
 
+    //DELETE
     public boolean eliminarAvion(String matriculaAvion) {
         if(esVacia()) {
             return false;
@@ -125,18 +128,6 @@ public class ListaAviones {
         }
         return false;
     }
-
-    
-
-    public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
-    }
-
-    public String getMensaje() {
-        return mensaje;
-    }
-
-    
 
     
 }
