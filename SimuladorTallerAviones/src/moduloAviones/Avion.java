@@ -4,13 +4,28 @@ public class Avion {
     private String marca;
     private int capacidadPasajeros;
     private int anioFabricacion;
+    //private ListaTareas listaTareas;
 
-    public Avion(String matricula, String modelo, String marca, int capacidadPasajeros, int anioFabricacion) {
+    public Avion(String matricula, String modelo, String marca, int capacidadPasajeros, int anioFabricacion /*ListaTareas listaTareas */) {
         this.matricula = matricula;
         this.modelo = modelo;
         this.marca = marca;
         this.capacidadPasajeros = capacidadPasajeros;
         this.anioFabricacion = anioFabricacion;
+        /* this.listaTareas = listaTareas; */
+    }
+
+    @Override
+    public String toString() {
+        return "\nMatricula: " + getMatricula()
+            +   "\nModelo: " + getModelo()
+            +   "\nMarca: " + getMarca()
+            +   "\nCapacidad de Pasajero: " + getCapacidadPasajeros()
+            +   "\nAño de fabriación: " + getAnioFabricacion()
+            /* +   "\nLista de tareas: " + "\n-----------------"
+            +   "\n" + listaTareas.toString()
+            +   "\n-----------------" */
+            +   "\n-------------------------";
     }
 
     public String getMatricula() {
