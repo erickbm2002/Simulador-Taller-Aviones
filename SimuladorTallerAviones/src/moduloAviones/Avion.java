@@ -1,5 +1,6 @@
 package moduloAviones;
 
+import moduloTareas.ListaTareasCirculares;
 
 public class Avion {
     private String matricula;
@@ -7,28 +8,29 @@ public class Avion {
     private String marca;
     private int capacidadPasajeros;
     private int anioFabricacion;
-    //private ListaTareas listaTareas;
+    private ListaTareasCirculares listaTareas; 
 
-    public Avion(String matricula, String modelo, String marca, int capacidadPasajeros, int anioFabricacion /*ListaTareas listaTareas */) {
+    public Avion(String matricula, String modelo, String marca, int capacidadPasajeros, int anioFabricacion) {
         this.matricula = matricula;
         this.modelo = modelo;
         this.marca = marca;
         this.capacidadPasajeros = capacidadPasajeros;
         this.anioFabricacion = anioFabricacion;
-        /* this.listaTareas = listaTareas; */
+        this.listaTareas = new ListaTareasCirculares(); 
     }
 
     @Override
     public String toString() {
         return "\nMatricula: " + getMatricula()
-            +   "\nModelo: " + getModelo()
-            +   "\nMarca: " + getMarca()
-            +   "\nCapacidad de Pasajero: " + getCapacidadPasajeros()
-            +   "\nAño de fabriación: " + getAnioFabricacion()
-            /* +   "\nLista de tareas: " + "\n-----------------"
-            +   "\n" + listaTareas.toString()
-            +   "\n-----------------" */
-            +   "\n-------------------------";
+            + "\nModelo: " + getModelo()
+            + "\nMarca: " + getMarca()
+            + "\nCapacidad de Pasajeros: " + getCapacidadPasajeros()
+            + "\nAño de fabricación: " + getAnioFabricacion()
+            + "\nLista de tareas: "
+            + "\n-----------------"
+            + listaTareas.toString()
+            + "\n-----------------"
+            + "\n-------------------------";
     }
 
     public String getMatricula() {
@@ -70,7 +72,8 @@ public class Avion {
     public void setAnioFabricacion(int anioFabricacion) {
         this.anioFabricacion = anioFabricacion;
     }
-
     
-
+    public ListaTareasCirculares getListaTareas() {
+        return listaTareas;
+    }
 }

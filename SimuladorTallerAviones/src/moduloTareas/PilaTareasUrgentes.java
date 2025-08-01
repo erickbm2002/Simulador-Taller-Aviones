@@ -1,45 +1,44 @@
 package moduloTareas;
 
+import javax.swing.JOptionPane;
+
 public class PilaTareasUrgentes {
     private NodoPila cabeza;
-
+    
     public PilaTareasUrgentes() {
         this.cabeza = null;
     }
-
-    public boolean apilarTareaUrgente (Tarea tarea) {
+    
+    public boolean esVacia() {
+        return this.cabeza == null;
+    }
+    
+    public void apilarTareaUrgente(Tarea tarea) {
         NodoPila nodoNuevo = new NodoPila(tarea);
-        if (esVacia()) {
-            this.cabeza = nodoNuevo;
-            return true;
-        }
-        this.cabeza.setNodoSiguiente(nodoNuevo);
+        nodoNuevo.setNodoSiguiente(this.cabeza);
         this.cabeza = nodoNuevo;
-        return true;
     }
-
-    public boolean eliminarTareaUrgente()  {
-        NodoPila nodoActual = this.cabeza;
-        this.cabeza = nodoActual.getNodoSiguiente();
-        return true;
+    
+    public Tarea eliminarTareaUrgente() {
+        if (esVacia()) {
+            JOptionPane.showMessageDialog(null, "La pila de tareas urgentes está vacía.");
+            return null;
+        }
+        Tarea tareaEliminada = this.cabeza.getTarea();
+        this.cabeza = this.cabeza.getNodoSiguiente();
+        return tareaEliminada;
     }
-
+    
     public String mostrarTareasUrgentes() {
-        String datosTareasUrgentes = "Tareas urgentes: " + "\n----------------------";
-        NodoPila nodoActual = this.cabeza; 
+        if (esVacia()) {
+            return "No hay tareas urgentes pendientes.";
+        }
+        StringBuilder sb = new StringBuilder("Tareas urgentes (cima a base):\n----------------------\n");
+        NodoPila nodoActual = this.cabeza;
         while(nodoActual != null) {
-            datosTareasUrgentes += nodoActual.getTarea().toString();
+            sb.append(nodoActual.getTarea().toString()).append("\n");
             nodoActual = nodoActual.getNodoSiguiente();
         }
-        return datosTareasUrgentes;
+        return sb.toString();
     }
-
-    public boolean esVacia() {
-        if(this.cabeza == null) {
-            return true;
-        }
-        return false;
-    }
-
-    
 }

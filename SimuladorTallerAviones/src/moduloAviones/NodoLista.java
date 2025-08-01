@@ -24,6 +24,4 @@ public class NodoLista {
     public void setSiguienteNodo(NodoLista siguienteNodo) {
         this.siguienteNodo = siguienteNodo;
     }
-
-    
 }
