@@ -3,7 +3,6 @@ package moduloTareas;
 public class NodoPila {
     private Tarea tarea;
     private NodoPila nodoSiguiente;
-
     
     public NodoPila(Tarea tarea) {
         this.tarea = tarea;
@@ -22,6 +21,4 @@ public class NodoPila {
     public void setNodoSiguiente(NodoPila nodoSiguiente) {
         this.nodoSiguiente = nodoSiguiente;
     }
-
-    
 }
